@@ -12,6 +12,7 @@ namespace EntLibLoggingDemo.Logging
     {
         static EntLibLogger()
         {
+            // If you are using EntLib v5, the folowing two statements must be commented.
             var logWriter = new LogWriterFactory().Create();
             Logger.SetLogWriter(logWriter);
         }
