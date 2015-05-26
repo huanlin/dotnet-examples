@@ -7,23 +7,32 @@ using System.Data.Entity.SqlServer;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace InfoTicket.Core.Infrastructure
+namespace SqlCommandLogging
 {
     public class EFConfig : DbConfiguration
     {
+
+        /// <summary>
+        /// NOTE: EF cannot find this class because it is not in the same assembly as DbContext, so we configure it in App.config. 
+        ///       See "codeConfigurationType" attribute in App.config.
+        /// </summary>
         public EFConfig()
         {
             DbInterception.Add(new EFSqlCommandInterceptor());
 
-            int maxRetryCount = 20;
-            int maxDelaySeconds = 60;
+            int maxRetryCount = 5;
+            int maxDelaySeconds = 30;
 
             SetTransactionHandler(SqlProviderServices.ProviderInvariantName, () => new CommitFailureHandler());
+
+            // The lines below are commented because we don't want SQL retry here.
+            /*
             SetExecutionStrategy(SqlProviderServices.ProviderInvariantName, () => new MySqlAzureExecutionStrategy(maxRetryCount, TimeSpan.FromSeconds(maxDelaySeconds)));
 
             Console.WriteLine(
                 "SQL execution strategy configured. Max retry count: {0}, Max retry delay: {1} seconds.", 
                 maxRetryCount, maxDelaySeconds);
+             */
         }
     }
 
