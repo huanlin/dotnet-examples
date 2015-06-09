@@ -13,7 +13,7 @@ namespace MyLibTests
     public class MyClassTests
     {
         [Test]
-        public void CanAddTwoNumbers()
+        public void Should_Add_Two_Numbers()
         {
             var sut = new MyClass();
             int result = sut.Add(10, 20);
@@ -22,7 +22,7 @@ namespace MyLibTests
         }
 
         [Test]
-        public void CanAddTwoNumbers_Fluent()
+        public void Should_Add_Two_Numbers_Fluent()
         {
             var sut = new MyClass();
             int result = sut.Add(1, 1);
@@ -30,7 +30,7 @@ namespace MyLibTests
         }
 
         [Test]
-        public void CanGetHelloString_Fluent()
+        public void Should_Get_Hello_String_Fluent()
         {
             var sut = new MyClass();
             string result = sut.GetHelloString("Michael");
