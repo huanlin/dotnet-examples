@@ -1,0 +1,28 @@
+﻿using System.Data.Entity;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+using LayeredApp.DataAccess;
+
+namespace LayeredApp.Web
+{
+    public class WebApiApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Initialize the database.
+            Database.SetInitializer(new DropCreateDatabaseAlways<SalesContext>());
+            using (var context = new SalesContext())
+            {
+                context.Database.Initialize(force: true);
+            }
+        }
+    }
+}
