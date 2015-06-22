@@ -25,8 +25,8 @@ namespace MyLibTests
         public void Should_Add_Two_Numbers_Fluent()
         {
             var sut = new MyClass();
-            int result = sut.Add(1, 1);
-            result.Should().Be(2, "because 1+1=2.");
+            int result = sut.Add(1, 20);
+            result.Should().Be(30, "because 10+20=30.");
         }
 
         [Test]
