@@ -1,5 +1,6 @@
-﻿using System.Data.Entity;
-using LayeredApp.Core.Model;
+﻿using LayeredApp.Core.Models;
+using LayeredApp.DataAccess.EntityTypeConfigurations;
+using System.Data.Entity;
 
 namespace LayeredApp.DataAccess
 {
@@ -9,13 +10,17 @@ namespace LayeredApp.DataAccess
         {
         }
 
-        public DbSet<SalesOrder> SalesOrders { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new SalesOrderConfiguration());
-
-            //base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new CustomerConfiguration());
+            modelBuilder.Configurations.Add(new ProductConfiguration());
+            modelBuilder.Configurations.Add(new OrderConfiguration());
+            modelBuilder.Configurations.Add(new OrderItemConfiguration());            
         }
     }
 }

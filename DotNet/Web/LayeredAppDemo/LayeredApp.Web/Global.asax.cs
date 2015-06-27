@@ -1,9 +1,9 @@
-﻿using System.Data.Entity;
+﻿using LayeredApp.DataAccess;
+using System.Data.Entity;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using LayeredApp.DataAccess;
 
 namespace LayeredApp.Web
 {
@@ -18,7 +18,7 @@ namespace LayeredApp.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // Initialize the database.
-            Database.SetInitializer(new DropCreateDatabaseAlways<SalesContext>());
+            Database.SetInitializer(new SalesDbInitializer());
             using (var context = new SalesContext())
             {
                 context.Database.Initialize(force: true);

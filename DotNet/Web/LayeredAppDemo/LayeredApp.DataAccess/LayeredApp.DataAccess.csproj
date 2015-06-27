@@ -49,9 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CustomerCommand.cs" />
+    <Compile Include="Commands\ICustomerCommand.cs" />
+    <Compile Include="EntityTypeConfigurations\OrderStatusConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\ProductConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\CustomerConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\OrderItemConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\CustomerQuery.cs" />
+    <Compile Include="Queries\ICustomerQuery.cs" />
     <Compile Include="SalesContext.cs" />
-    <Compile Include="SalesOrderConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\OrderConfiguration.cs" />
+    <Compile Include="SalesDbInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,6 +72,7 @@
       <Name>LayeredApp.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

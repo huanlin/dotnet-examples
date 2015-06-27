@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2D934906-A1BC-4448-B1F5-31B98A7D2809}</ProjectGuid>
+    <ProjectGuid>{898079E1-D0BA-478A-B286-B1630B05824C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LayeredApp.Core</RootNamespace>
-    <AssemblyName>LayeredApp.Core</AssemblyName>
+    <RootNamespace>LayeredApp.Application</RootNamespace>
+    <AssemblyName>LayeredApp.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,17 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\OrderItem.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Enums\OrderStatusEnum.cs" />
-    <Compile Include="Models\OrderStatus.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Enums\ProductCategoryEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CustomerService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\LayeredApp.Core\LayeredApp.Core.csproj">
+      <Project>{2d934906-a1bc-4448-b1f5-31b98a7d2809}</Project>
+      <Name>LayeredApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LayeredApp.DataAccess\LayeredApp.DataAccess.csproj">
+      <Project>{a28ff1ba-c01e-405e-aa0b-fcfadad77185}</Project>
+      <Name>LayeredApp.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
