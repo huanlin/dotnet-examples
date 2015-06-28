@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using LayeredApp.Core.Interfaces.Commands;
+using LayeredApp.Core.Interfaces.Queries;
 using LayeredApp.Core.Models;
-using LayeredApp.DataAccess.Commands;
-using LayeredApp.DataAccess.Queries;
 
 namespace LayeredApp.Application.Services
 {
@@ -18,7 +17,7 @@ namespace LayeredApp.Application.Services
             _customerQuery = customerQuery;
         }
 
-        public Task<ICollection<Customer>> GetCustomersAsync()
+        public Task<Customer[]> GetCustomersAsync()
         {
             return _customerQuery.GetCustomersAsync();
         }

@@ -1,6 +1,7 @@
 ﻿
 using System.Data.Entity;
 using System.Threading.Tasks;
+using LayeredApp.Core.Interfaces.Commands;
 using LayeredApp.Core.Models;
 
 namespace LayeredApp.DataAccess.Commands

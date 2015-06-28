@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Threading.Tasks;
+using LayeredApp.Core.Interfaces.Queries;
 using LayeredApp.Core.Models;
 
 namespace LayeredApp.DataAccess.Queries
@@ -14,9 +14,9 @@ namespace LayeredApp.DataAccess.Queries
             _salesContext = context;
         }
 
-        public async Task<ICollection<Customer>> GetCustomersAsync()
+        public Task<Customer[]> GetCustomersAsync()
         {
-            return await _salesContext.Customers.ToListAsync();
+            return _salesContext.Customers.ToArrayAsync();
         }
 
         public Task<Customer> GetCustomerByIdAsync(int customerId)
