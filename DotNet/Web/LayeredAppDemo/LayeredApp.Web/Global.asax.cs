@@ -1,9 +1,16 @@
-﻿using LayeredApp.DataAccess;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Integration.WebApi;
+using LayeredApp.Core.Interfaces.Commands;
+using LayeredApp.Core.Interfaces.Queries;
+using LayeredApp.DataAccess;
+using LayeredApp.DataAccess.Commands;
+using LayeredApp.DataAccess.Queries;
 
 namespace LayeredApp.Web
 {
@@ -23,6 +30,20 @@ namespace LayeredApp.Web
             {
                 context.Database.Initialize(force: true);
             }
+
+
+            // Configuring Autofac
+            var config = GlobalConfiguration.Configuration;
+
+            var builder = new ContainerBuilder();
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());    // Registering all API controllers.
+            builder.RegisterType<SalesContext>().As<SalesContext>();            // Don't forget to register our DbContext class!
+            builder.RegisterType<CustomerCommand>().As<ICustomerCommand>();
+            builder.RegisterType<CustomerQuery>().As<ICustomerQuery>();
+
+            var container = builder.Build();
+            var resolver = new AutofacWebApiDependencyResolver(container);
+            config.DependencyResolver = resolver;
         }
     }
 }
