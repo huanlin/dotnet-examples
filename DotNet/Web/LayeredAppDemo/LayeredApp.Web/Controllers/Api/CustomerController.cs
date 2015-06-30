@@ -1,24 +1,20 @@
-﻿using System.Web.Http;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using LayeredApp.Core.Interfaces.Commands;
-using LayeredApp.Core.Interfaces.Queries;
+using System.Web.Http;
+using LayeredApp.Core.Interfaces.Services;
 using LayeredApp.Core.Models;
 using LayeredApp.Web.Controllers.Api.Messages.Customer;
-using WebGrease.Css.Extensions;
 
 namespace LayeredApp.Web.Controllers.Api
 {
     [RoutePrefix("api/Customer")]
     public class CustomerController : ApiController
     {
-        private readonly ICustomerCommand _customerCommand;
-        private readonly ICustomerQuery _customerQuery;
+        private readonly ICustomerService _customerService;
 
-        public CustomerController(ICustomerCommand customerCommand, ICustomerQuery customerQuery)
+        public CustomerController(ICustomerService customerService)
         {
-            _customerCommand = customerCommand;
-            _customerQuery = customerQuery;
+            _customerService = customerService;
         }
 
         private CustomerViewModel ConvertToCustomerViewModel(Customer customer)
@@ -35,7 +31,7 @@ namespace LayeredApp.Web.Controllers.Api
         [HttpGet]
         public async Task<GetCustomersResponse> GetCustomers()
         {
-            var customers = await _customerQuery.GetCustomersAsync();
+            var customers = await _customerService.GetCustomersAsync();
             return new GetCustomersResponse
             {
                 Valid = true,

@@ -204,7 +204,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\Api\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomerController.cs" />
     <Compile Include="Controllers\Api\Messages\Customer\CustomerViewModel.cs" />
     <Compile Include="Controllers\Api\Messages\Customer\GetCustomersResponse.cs" />
@@ -289,6 +288,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LayeredApp.Application\LayeredApp.Application.csproj">
+      <Project>{898079e1-d0ba-478a-b286-b1630b05824c}</Project>
+      <Name>LayeredApp.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LayeredApp.Core\LayeredApp.Core.csproj">
       <Project>{2d934906-a1bc-4448-b1f5-31b98a7d2809}</Project>
       <Name>LayeredApp.Core</Name>

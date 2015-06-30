@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 using LayeredApp.Core.Interfaces.Commands;
 using LayeredApp.Core.Interfaces.Queries;
+using LayeredApp.Core.Interfaces.Services;
 using LayeredApp.Core.Models;
 
 namespace LayeredApp.Application.Services
 {
-    public class CustomerService
+    public class CustomerService : ICustomerService
     {
         private readonly ICustomerCommand _customerCommand;
         private readonly ICustomerQuery _customerQuery;
@@ -17,14 +18,19 @@ namespace LayeredApp.Application.Services
             _customerQuery = customerQuery;
         }
 
-        public Task<Customer[]> GetCustomersAsync()
+        Task<Customer[]> ICustomerQuery.GetCustomersAsync()
         {
             return _customerQuery.GetCustomersAsync();
         }
 
-        public Task<Customer> GetCustomerByIdAsync(int customerId)
+        Task<Customer> ICustomerQuery.GetCustomerByIdAsync(int customerId)
         {
             return _customerQuery.GetCustomerByIdAsync(customerId);
+        }
+
+        Task ICustomerCommand.UpdateCustomer(Customer customer)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

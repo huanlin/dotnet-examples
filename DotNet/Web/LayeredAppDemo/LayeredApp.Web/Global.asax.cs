@@ -6,8 +6,10 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.WebApi;
+using LayeredApp.Application.Services;
 using LayeredApp.Core.Interfaces.Commands;
 using LayeredApp.Core.Interfaces.Queries;
+using LayeredApp.Core.Interfaces.Services;
 using LayeredApp.DataAccess;
 using LayeredApp.DataAccess.Commands;
 using LayeredApp.DataAccess.Queries;
@@ -38,6 +40,8 @@ namespace LayeredApp.Web
             var builder = new ContainerBuilder();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());    // Registering all API controllers.
             builder.RegisterType<SalesContext>().As<SalesContext>();            // Don't forget to register our DbContext class!
+
+            builder.RegisterType<CustomerService>().As<ICustomerService>();
             builder.RegisterType<CustomerCommand>().As<ICustomerCommand>();
             builder.RegisterType<CustomerQuery>().As<ICustomerQuery>();
 

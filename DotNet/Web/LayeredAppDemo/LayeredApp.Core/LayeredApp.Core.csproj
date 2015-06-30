@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\Commands\ICustomerCommand.cs" />
     <Compile Include="Interfaces\Queries\ICustomerQuery.cs" />
+    <Compile Include="Interfaces\Services\ICustomerService.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Order.cs" />
