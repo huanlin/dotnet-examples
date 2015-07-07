@@ -54,9 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Mapping\CustomerMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalesContext.cs" />
+    <Compile Include="SalesDbInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

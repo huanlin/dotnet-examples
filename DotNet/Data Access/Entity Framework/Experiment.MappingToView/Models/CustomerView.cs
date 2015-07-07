@@ -1,7 +1,7 @@
 ﻿
-namespace Demo01.CodeFirst.Models
+namespace Demo02.CodeFirstSqlView.Models
 {
-    public class Customer
+    public class CustomerView
     {
         public int Id { get; set; }
 

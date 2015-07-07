@@ -1,7 +1,7 @@
 ﻿using System;
-using Demo01.CodeFirst.Models;
+using Demo02.CodeFirstSqlView.Models;
 
-namespace Demo01.CodeFirst
+namespace Demo02.CodeFirstSqlView
 {
     class Program
     {
@@ -16,10 +16,10 @@ namespace Demo01.CodeFirst
             {
                 context.Customers.Add(customer);
                 context.SaveChanges();
-                
+
                 foreach (var cust in context.Customers)
                 {
-                    Console.WriteLine("{0}: {1}", cust.Id, cust.Name);   
+                    Console.WriteLine("{0}: {1}", cust.Id, cust.Name);
                 };
             }
         }

@@ -4,8 +4,9 @@ A very simple example for showing Entity Framework Code First.
 
 ## Note
 
- - When the application is started, the database will be created if it does not exist.
- - To see the database, at leasr run this application once, then open SQL Server Object Explorer window in Visual Studio. 
+ - When the application is started, the database will always be created.
+ - Database seeding is demonstrated.
+ - To see the database, at least run this application once, then open SQL Server Object Explorer window in Visual Studio. 
 
    In the SQL Server Object Explorer, under "SQL Server" node, you should see some connection nodes such as:
 

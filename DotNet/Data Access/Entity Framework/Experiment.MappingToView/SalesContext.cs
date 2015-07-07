@@ -1,8 +1,8 @@
-﻿using Demo01.CodeFirst.Models;
-using Demo01.CodeFirst.Models.Mapping;
-using System.Data.Entity;
+﻿using Demo02.CodeFirstSqlView.Models;
+using Demo02.CodeFirstSqlView.Models.Mapping;
+using Microsoft.Data.Entity;
 
-namespace Demo01.CodeFirst
+namespace Demo02.CodeFirstSqlView
 {
     public class SalesContext : DbContext
     {
@@ -18,15 +18,26 @@ namespace Demo01.CodeFirst
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<SalesContext>()); 
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<SalesContext, MyConfiguration>()); 
              */
+
+            // Force to run the database initializer.
+            Database.Initialize(true);
+
+            // Create a view!
+            this.Database.ExecuteSqlCommand("CREATE VIEW [CustomerView] AS SELECT * FROM [Customer]");
         }
 
         public DbSet<Customer> Customers { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);            
+            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Configurations.Add(new CustomerMap());
+            modelBuilder.Entity<Customer>()
+                .Property(t => t.Id).Required()
+                .Property(t => t.Name);
+
+            //modelBuilder.Entity<CustomerView>)
+            //    .
         }
 
     }
