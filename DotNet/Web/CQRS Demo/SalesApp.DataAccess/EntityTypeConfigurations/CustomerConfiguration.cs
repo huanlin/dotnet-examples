@@ -14,6 +14,7 @@ namespace SalesApp.DataAccess.EntityTypeConfigurations
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new IndexAttribute("IX_Customer_Name", 1) {IsUnique = false}));
+            Property(t => t.Country).HasMaxLength(30);
             Property(t => t.Address).HasMaxLength(200);
         }
     }
