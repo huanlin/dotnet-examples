@@ -1,0 +1,8 @@
+
+
+ - PagedList library 
+   https://github.com/TroyGoode/PagedList
+   
+ - Build Where Clause Dynamically in Linq
+   http://www.codeproject.com/Tips/582450/Build-Where-Clause-Dynamically-in-Linq
+  
