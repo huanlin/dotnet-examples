@@ -1,5 +1,16 @@
 # CQRS Demo
 
+  A CQRS example with ASP.NET Web API 2.x.
+  
+## Test the Application
+
+  1. Open the solution file with Visual Studio 2013/2015, the press F5 or Ctrl+F5.
+  2. In your browser's address box, enter the following URLs to test:
+  
+     - http://[host name and port]/api/Customer/page=1&pageSize=10
+     - http://[host name and port]/api/Customer/page=1&pageSize=5&sortOrder=country
+     - http://[host name and port]/api/Customer/page=1&pageSize=5&name=j
+     - http://[host name and port]/api/Customer/page=1&pageSize=5&name=j&country=ROC
 
 ## Dependencies
 
