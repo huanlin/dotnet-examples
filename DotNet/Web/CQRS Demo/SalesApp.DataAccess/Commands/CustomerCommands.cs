@@ -5,11 +5,11 @@ using SalesApp.Core.Interfaces;
 
 namespace SalesApp.DataAccess.Commands
 {
-    public class CustomerCommand : ICustomerCommands
+    public class CustomerCommands : ICustomerCommands
     {
         private readonly SalesContext _salesContext;
 
-        public CustomerCommand(SalesContext context)
+        public CustomerCommands(SalesContext context)
         {
             _salesContext = context;
         }

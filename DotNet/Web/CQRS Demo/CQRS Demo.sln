@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{FEF06B30-C932-4A22-9E19-EB9CA6FF1693}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
+		doc\Structure.dgml = doc\Structure.dgml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesApp.Application", "SalesApp.Application\SalesApp.Application.csproj", "{898079E1-D0BA-478A-B286-B1630B05824C}"

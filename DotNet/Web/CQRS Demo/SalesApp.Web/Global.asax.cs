@@ -40,7 +40,7 @@ namespace SalesApp.Web
             builder.RegisterType<SalesContext>().As<SalesContext>();            // Don't forget to register our DbContext class!
 
             // 註冊你的 commands 和 quieries
-            builder.RegisterType<CustomerCommand>().As<ICustomerCommands>();
+            builder.RegisterType<CustomerCommands>().As<ICustomerCommands>();
             builder.RegisterType<CustomerQueries>().As<ICustomerQueries>();
 
             var container = builder.Build();

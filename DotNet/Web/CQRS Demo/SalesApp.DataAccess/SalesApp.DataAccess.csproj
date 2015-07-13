@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\CustomerCommand.cs" />
+    <Compile Include="Commands\CustomerCommands.cs" />
     <Compile Include="EntityTypeConfigurations\OrderStatusConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\ProductConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\CustomerConfiguration.cs" />
