@@ -7,9 +7,13 @@ namespace AFT.UGS.Services.DataServices.Queries.Paging
     public class PagedList<T> : IPagedList<T>
     {
         public int TotalCount { get; private set; }
+
         public int PageCount { get; private set; }
+
         public int Page { get; private set; }
+
         public int PageSize { get; private set; }
+
         public List<T> Items { get; private set; }
 
         public PagedList(IQueryable<T> source, int page, int pageSize)
@@ -39,22 +43,17 @@ namespace AFT.UGS.Services.DataServices.Queries.Paging
         public static T[] ToPagedArray(IQueryable<T> source, int page, int pageSize, out int totalCount)
         {
             totalCount = source.Count();
-            //int pageCount = GetPageCount(pageSize, TotalCount);
             page = page < 0 ? 0 : page - 1;
 
-            return source.Skip(page * pageSize).Take(pageSize).ToArray();            
+            return source.Skip(page * pageSize).Take(pageSize).ToArray();
         }
     }
 
     public static class PagedListExtensions
     {
-        // Commented because there is already a ToPagedList<T> extension method in PageExtensions.cs.
-        // Suggestion: PageExtensions.ToPagedList() can be renamed to ToPagedCollection.
-        //
-        //public static IPagedList<T> ToPagedList<T>(this IQueryable<T> source, int page, int pageSize)
-        //{
-        //    return new PagedList<T>(source, page, pageSize);
-        //}
-
+        public static T[] ToPagedArray<T>(this IQueryable<T> query, int page, int pageSize, out int totalCount)
+        {
+            return PagedList<T>.ToPagedArray(query, page, pageSize, out totalCount);
+        }
     }
 }

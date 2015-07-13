@@ -1,15 +1,13 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AFT.UGS.Core.Interfaces.Queries.Paging
 {
-
     public interface ISortOption
     {
         string PropertyName { get; set; }
+
         bool IsDescending { get; set; }
     }
-
 
     public enum FilterOperator
     {
@@ -20,10 +18,16 @@ namespace AFT.UGS.Core.Interfaces.Queries.Paging
         LargerThan
     };
 
+    public interface IFilter
+    {
+    }
+
     public interface IFilterOption
     {
         string PropertyName { get; set; }
+
         FilterOperator Operator { get; set; }
+
         object Value { get; set; }
     }
 
@@ -36,6 +40,8 @@ namespace AFT.UGS.Core.Interfaces.Queries.Paging
         ISortOption SortOption { get; set; }
 
         List<IFilterOption> FilterOptions { get; set; }
+
+        IFilter Filter { get; set; }
 
         bool ShowAll { get; set; }
     }

@@ -13,6 +13,8 @@ namespace AFT.UGS.Services.DataServices.Queries.Paging
 
         public List<IFilterOption> FilterOptions { get; set; }
 
+        public IFilter Filter { get; set; }
+
         public bool ShowAll { get; set; }
 
         public PagableQueryParameter()
