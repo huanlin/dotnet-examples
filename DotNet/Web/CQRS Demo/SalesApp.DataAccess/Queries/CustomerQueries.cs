@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using LinqKit;
 using PagedList;
+using PagedList.EntityFramework;
 using SalesApp.Core.Interfaces;
 using SalesApp.Core.Models;
 
@@ -19,17 +20,17 @@ namespace SalesApp.DataAccess.Queries
             _salesContext = context;
         }
 
-        public Task<Customer[]> GetCustomersAsync()
+        Task<Customer[]> ICustomerQueries.GetCustomersAsync()
         {
             return _salesContext.Customers.ToArrayAsync();
         }
 
-        public Task<Customer> GetCustomerByIdAsync(int customerId)
+        Task<Customer> ICustomerQueries.GetCustomerByIdAsync(int customerId)
         {
             return _salesContext.Customers.SingleOrDefaultAsync(c => c.Id == customerId);
-        }
+        }       
 
-        public Task<IPagedList<Customer>> GetCustomersAsync(int page, int pageSize, string sortOrder, Expression<Func<Customer, bool>> filterExpr)
+        async Task<IPagedList<Customer>> ICustomerQueries.GetCustomersAsync(int page, int pageSize, string sortOrder, Expression<Func<Customer, bool>> filterExpr)
         {
             var query = (from c in _salesContext.Customers
                          select c)
@@ -50,8 +51,6 @@ namespace SalesApp.DataAccess.Queries
                 case "name desc":
                     query = query.OrderByDescending(c => c.Name);
                     break;
-                case "name":
-                case "name asc":
                 default:
                     query = query.OrderBy(c => c.Name);
                     break;
@@ -62,8 +61,13 @@ namespace SalesApp.DataAccess.Queries
                 page = 1;
             }
 
-            var customers = query.ToPagedList(page, pageSize);
-            return Task.FromResult(customers);
+            var customers = await query.ToPagedListAsync(page, pageSize);
+            return customers;
+        }
+
+        IQueryable<Customer> ICustomerQueries.GetCustomersQuery()
+        {
+            return _salesContext.Customers;
         }
     }
 }
