@@ -5,6 +5,6 @@ namespace SalesApp.Core.Interfaces
 {
     public interface ICustomerCommands
     {
-        Task UpdateCustomer(Customer customer);
+        Task UpdateCustomerAsync(Customer customer);
     }
 }

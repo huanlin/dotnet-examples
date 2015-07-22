@@ -1,7 +1,7 @@
-﻿using System.Data.Entity;
-using System.Threading.Tasks;
+﻿using SalesApp.Core.Interfaces;
 using SalesApp.Core.Models;
-using SalesApp.Core.Interfaces;
+using System.Data.Entity;
+using System.Threading.Tasks;
 
 namespace SalesApp.DataAccess.Commands
 {
@@ -14,10 +14,17 @@ namespace SalesApp.DataAccess.Commands
             _salesContext = context;
         }
 
-        public async Task UpdateCustomer(Customer customer)
+        async Task ICustomerCommands.UpdateCustomerAsync(Customer customer)
         {
             _salesContext.Entry(customer).State = EntityState.Modified;
-            _salesContext.SaveChanges();
+            await _salesContext.SaveChangesAsync();
         }
+
+        async Task UpdateCustomerAsync(Customer customer)
+        {
+            _salesContext.Entry(customer).State = EntityState.Modified;
+            await _salesContext.SaveChangesAsync();
+        }
+
     }
 }
