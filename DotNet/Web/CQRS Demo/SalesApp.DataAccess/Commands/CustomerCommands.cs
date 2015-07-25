@@ -19,12 +19,5 @@ namespace SalesApp.DataAccess.Commands
             _salesContext.Entry(customer).State = EntityState.Modified;
             await _salesContext.SaveChangesAsync();
         }
-
-        async Task UpdateCustomerAsync(Customer customer)
-        {
-            _salesContext.Entry(customer).State = EntityState.Modified;
-            await _salesContext.SaveChangesAsync();
-        }
-
     }
 }
