@@ -39,11 +39,12 @@ namespace SalesApp.Web.Controllers.Api
         // 非公開方法，單純示範把全部的查詢處理都寫在 controller 動作方法中（分頁、篩選、排序實際上還是在 DB 端執行）。
         private async Task<GetCustomersResponse> GetCustomersV0([FromUri] GetCustomersRequest request)
         {
+            // 明白起見，把建立 DbContext 的程式碼放在這裡。實際上不會這樣做。
             SalesContext salesContext = new SalesContext();
-
-            // 建立篩選條件
+            
             var customersQuery = salesContext.Customers.AsQueryable();
 
+            // 建立篩選條件
             if (!string.IsNullOrWhiteSpace(request.Name))
             {
                 customersQuery = customersQuery.Where(c => c.Name.Contains(request.Name));
