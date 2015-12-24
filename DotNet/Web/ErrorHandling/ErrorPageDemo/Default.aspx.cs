@@ -10,19 +10,19 @@ namespace ErrorPageDemo
         {
             if (!Page.IsPostBack)
             {
-                ddlLanguages.Items.Add("en-US");
-                ddlLanguages.Items.Add("zh-TW");
-                ddlLanguages.Items.Add("zh-CN");
-                ddlLanguages.Items.Add("fr-FR");
-                ddlLanguages.Items.Add("id-ID");
-                ddlLanguages.SelectedIndex = 0;
+                ddlLanguagesInSession.Items.Add("en-US");
+                ddlLanguagesInSession.Items.Add("zh-TW");
+                ddlLanguagesInSession.Items.Add("zh-CN");
+                ddlLanguagesInSession.Items.Add("fr-FR");
+                ddlLanguagesInSession.Items.Add("id-ID");
+                ddlLanguagesInSession.SelectedIndex = 0;
             }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Session["UserLanguage"] = ddlLanguages.Text;
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ddlLanguages.Text);
+            Session["UserLanguage"] = ddlLanguagesInSession.Text;
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Session["UserLanguage"].ToString());
             throw new Exception("休士頓，我們這裡出問題了!");
         }
     }

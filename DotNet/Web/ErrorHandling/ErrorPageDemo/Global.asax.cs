@@ -24,7 +24,7 @@ namespace ErrorPageDemo
                 Session["UserLanguage"] = "ko-KR";
             }
 
-            // 在 error page 中應該能夠取得這裡設定的 CurrentUICulture，那就不需要使用 Session 變數了。
+            // 在 error page 中應該能夠取得這裡設定的 CurrentUICulture。
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Session["UserLanguage"].ToString());
         }
     }

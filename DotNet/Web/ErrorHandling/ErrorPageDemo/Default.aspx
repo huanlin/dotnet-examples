@@ -11,7 +11,7 @@
     <div>
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="1234.html">引發 IIS 層級的 404</asp:HyperLink>
         <p> </p>
-        <asp:DropDownList ID="ddlLanguages" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="ddlLanguagesInSession" runat="server"></asp:DropDownList>
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Throw Exception" />    
     </div>
     </form>

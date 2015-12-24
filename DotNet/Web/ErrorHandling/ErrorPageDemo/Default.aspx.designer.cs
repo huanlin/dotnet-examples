@@ -31,13 +31,13 @@ namespace ErrorPageDemo {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
         
         /// <summary>
-        /// ddlLanguages control.
+        /// ddlLanguagesInSession control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLanguages;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLanguagesInSession;
         
         /// <summary>
         /// Button1 control.
