@@ -10,9 +10,9 @@
     <form id="form1" runat="server">
     <div>
         <h2>糟糕! HTTP 500!</h2>
-        <p>自訂語系參數: <%= Application["UserLanguage"] %></p>
-        <p>伺服器變數 HTTP_ACCEPT_LANGUAGE: <%= Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"] %></p>
+        <p>自訂語系參數 (使用 Session): <%= Session["UserLanguage"] %></p>
         <p>執行緒 UICulture: <%= System.Threading.Thread.CurrentThread.CurrentUICulture.ToString() %></p>
+        <p>伺服器變數 HTTP_ACCEPT_LANGUAGE: <%= Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"] %></p>
     </div>
     </form>
 </body>

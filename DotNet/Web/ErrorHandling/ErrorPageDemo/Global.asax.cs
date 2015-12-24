@@ -1,6 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Globalization;
+using System.Threading;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+
 
 namespace ErrorPageDemo
 {
@@ -16,7 +19,13 @@ namespace ErrorPageDemo
 
         protected void Application_Error()
         {
-            Application["UserLanguage"] = "fr-FR";
+            if (Session["UserLanguage"] == null)
+            {
+                Session["UserLanguage"] = "ko-KR";
+            }
+
+            // 在 error page 中應該能夠取得這裡設定的 CurrentUICulture，那就不需要使用 Session 變數了。
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Session["UserLanguage"].ToString());
         }
     }
 }
