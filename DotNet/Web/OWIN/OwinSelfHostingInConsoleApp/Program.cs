@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Hosting;
 using Owin;
@@ -25,10 +26,24 @@ namespace ConsoleApplication1
     {
         public void Configuration(IAppBuilder app)
         {
+            ConfigureWebApi(app);
+
             app.Use<Middleware1>();
-            app.Use<Middleware2>();
+            app.Use<Middleware2>();           
+        }
+
+        private void ConfigureWebApi(IAppBuilder app)
+        {
+            var config = new HttpConfiguration();
+            config.Routes.MapHttpRoute(
+                "DefaultApi",
+                "api/{controller}/{id}",
+                new { id = RouteParameter.Optional });
+
+            app.UseWebApi(config);
         }
     }
+
 
     public class Middleware1 : OwinMiddleware
     {
