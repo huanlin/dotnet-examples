@@ -1,2 +1,0 @@
-2015-02-09 18:54:53.7893 | INFO | PushSharpDemo.AppPushDemo | Channel Created for: PushSharp.Apple.ApplePushService 
-2015-02-09 18:55:00.8854 | INFO | PushSharpDemo.AppPushDemo | App Push notification sent to PushSharp.Apple.ApplePushService OK : {"aps":{"alert":"Hello from Michael's test tool.","badge":1,"sound":"default"}} 

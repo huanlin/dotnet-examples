@@ -1,0 +1,18 @@
+--$(boundary)
+Content-Type: application/xml; charset=UTF-8
+<?xml version="1.0"?>
+<!DOCTYPE pap PUBLIC "-//WAPFORUM//DTD PAP 2.0//EN" "http://www.openmobilealliance.org/tech/DTD/pap_2.1.dtd">
+<pap>
+<push-message push-id="$(pushid)" 
+        source-reference="$(username)"
+        deliver-before-timestamp="$(deliverBefore)" >
+$(addresses)
+<quality-of-service delivery-method="$(deliveryMethod)"/>
+</push-message>
+</pap>
+--$(boundary)
+Content-Type: text/plain
+
+$(content)
+
+--$(boundary)--

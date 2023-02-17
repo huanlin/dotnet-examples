@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+use IO::Socket;
+
+$username = "";		# 帳號
+$password = "";		# 密碼
+$mobile = "09xxxxxxxx";	# 電話
+$message = "簡訊測試";	# 簡訊內容
+
+
+$msg = "username=".$username."&password=".$password."&mobile=".$mobile."&message=".$message;
+
+$Num = length $msg;
+$MSGData = $MSGData."POST /smsSend.php HTTP/1.1\r\n";
+$MSGData = $MSGData."Host: api.twsms.com\r\n";
+$MSGData = $MSGData."Content-Length: ".$Num."\r\n";
+$MSGData = $MSGData."Content-Type: application/x-www-form-urlencoded\r\n";
+$MSGData = $MSGData."Connection: Close\r\n\r\n";
+$MSGData = $MSGData.$msg."\r\n";
+
+$sock  = IO::Socket::INET->new(Proto=>"tcp",PeerAddr=>"api.twsms.com",PeerPort=>80) || die &fail;
+print $sock $MSGData;
+
+@output=<$sock>;
+close $sock;
+
+$Res="";
+foreach $item(@output){
+	$Res = $Res.$resultofcheck.$item;	
+};
+print "傳送完成:".$Res;

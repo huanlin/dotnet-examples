@@ -1,0 +1,31 @@
+<%
+Option Explicit
+username = ""		' 帳號
+password = ""		' 密碼
+mobile = "09xxxxxxxx"	' 電話
+message = "簡訊測試"	' 簡訊內容
+
+smsURL = "http://api.twsms.com/smsSend.php?"
+smsArgs = smsArgs & "username=" & username
+smsArgs = smsArgs & "&password=" & password
+smsArgs = smsArgs & "&mobile=" & mobile
+smsArgs = smsArgs & "&message=" & message
+
+' 以下物件您的系統環境必須支援, 不然會出現錯誤
+set xmlHTTP = Server.CreateObject("Microsoft.XMLHTTP")		' 使用 XMLHTTP 物件
+set XMLDocument = Server.CreateObject("Microsoft.XMLDOM")	' 使用 XMLHTTP 物件
+
+' 開啟 smsURL 設定的網址
+xmlHTTP.open "GET",smsURL & smsArgs ,False
+xmlHTTP.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+xmlHTTP.send
+
+' 將回傳的資料存入 XMLStr
+XMLStr = xmlHTTP.ResponseText 
+set xmlHTTP = nothing 
+set XMLDocument = nothing
+
+' 如果有負值則為傳送失敗
+response.write(XMLStr)
+response.end
+%>

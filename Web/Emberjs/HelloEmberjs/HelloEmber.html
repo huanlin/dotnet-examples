@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello, Ember!</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-2.1.3.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/ember-template-compiler.js"></script>
+    <script src="Scripts/ember-1.10.0.debug.js"></script>
+</head>
+<body>
+
+    <div class="container" id="my-app">
+        <!-- The x-handlerbars template below will be rendered to here at runtime. -->
+    </div>
+
+    <!-- If you define a x-handlebars script tag without a template name, Ember will use the template as the application template. -->
+    <script type="text/x-handlebars" data-template-name="application">
+        {{outlet}}
+        <!-- You should have at least one outlet: a placeholder that the router will fill in with the appropriate template, based on the current URL. -->
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="index">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Hello Ember!</h1>
+            </div>
+        </div>
+    </script>
+    
+    <script>
+        /*
+          If you don't specify rootElement, Ember will use <body> as the default root element.
+          That usually causes your template content show at a place that you don't expect.
+        */
+        var App = Ember.Application.create({
+            rootElement: "#my-app"
+        });
+    </script>
+</body>
+</html>

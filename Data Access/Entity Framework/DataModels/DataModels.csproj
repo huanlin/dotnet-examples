@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{23F6E972-F12A-4B8F-A2C8-9E6964D6699B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataModels</RootNamespace>
+    <AssemblyName>DataModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlphabeticalListOfProduct.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AlphabeticalListOfProductConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategorySalesFor1997.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategorySalesFor1997Configuration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentProductList.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentProductListConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerAndSuppliersByCity.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerAndSuppliersByCityConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDemographic.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDemographicConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustOrderHistReturnModel.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustOrdersDetailReturnModel.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustOrdersOrdersReturnModel.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeSalesByCountryReturnModel.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FakeDbSet.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FakeNorthwindDbContext.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INorthwindDbContext.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwindDbContext.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwindModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetail.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetailConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetailsExtended.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetailsExtendedConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersQry.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersQryConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderSubtotal.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderSubtotalConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAboveAveragePrice.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAboveAveragePriceConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSalesFor1997.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSalesFor1997Configuration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsByCategory.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsByCategoryConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegionConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesByCategory.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesByCategoryConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesByCategoryReturnModel.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesByYearReturnModel.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesTotalsByAmount.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesTotalsByAmountConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shipper.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShipperConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SummaryOfSalesByQuarter.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SummaryOfSalesByQuarterConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SummaryOfSalesByYear.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SummaryOfSalesByYearConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sysdiagram.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysdiagramConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TenMostExpensiveProductsReturnModel.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Territory.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TerritoryConfiguration.cs">
+      <DependentUpon>NorthwindModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="EF.Reverse.POCO.ttinclude" />
+    <None Include="NorthwindModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NorthwindModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

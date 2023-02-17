@@ -1,0 +1,66 @@
+#include <stdio.h>  
+#include <stdlib.h>  
+#include <string.h>  
+#include <sys/socket.h>  
+#include <netinet/in.h>  
+#include <arpa/inet.h>  
+#include <netdb.h>  
+  
+int main()  
+{  
+	char *username = "username";   // 帳號  
+	char *password = "password"; 	// 密碼  
+	char *mobile = "09xxxxxxxx"; 	// 電話  
+	char *message = "簡訊測試"; 	// 簡訊內容  
+  
+	int sockfd;  
+	int len = 0;  
+	char *host = "api.twsms.com";  
+	char msg[512], MSGData[512], buf[512];  
+	char *res, *checkRes;  
+	struct sockaddr_in address;  
+	struct hostent *hostinfo;  
+  
+	bzero(&address, sizeof(address));  
+	hostinfo = gethostbyname(host);  
+	if (!hostinfo) {  
+		fprintf(stderr, "no host: %s\n", host);  
+		exit(1);  
+	}  
+	address.sin_family = AF_INET;  
+	address.sin_port = htons(80);  
+	address.sin_addr = *(struct in_addr *)*hostinfo->h_addr_list;  
+  
+	/* Create socket */  
+	sockfd = socket(AF_INET, SOCK_STREAM, 0);  
+  
+	/* Connect to server */  
+	if (connect(sockfd, (struct sockaddr *)&address, sizeof(address)) == -1) {  
+		perror("connect faild!\n");  
+		exit(1);  
+	}  
+  
+	/* Request string */  
+	len = snprintf(msg, 512,  
+			 "username=%s&password=%s&mobile=%s&message=%s", username, password, mobile, message);  
+  
+	/* HTTP request content */  
+	snprintf(MSGData, 512,  
+			"POST /smsSend.php HTTP/1.1\r\n"  
+			"Host: %s\r\n"  
+			"Content-Length: %d\r\n"  
+			"Content-Type: application/x-www-form-urlencoded\r\n"  
+			"Connection: Close\r\n\r\n"  
+			"%s\r\n", host, len, msg);  
+  
+	/* Send message */  
+	send(sockfd, MSGData, strlen(MSGData), 0);  
+  
+	/* Response message */  
+	recv(sockfd, buf, 512, 0);  
+  
+	for (res = strtok(buf, "\n"); printf(res);
+  
+	close(sockfd);  
+	return 0;  
+}  
